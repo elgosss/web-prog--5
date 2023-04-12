@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 3</title>
+    </head>
+    <body>
+        <div id="main_3">
+            <script>
+                "use strict";
+                let str = prompt('Введите строку', 'Поставьте балл');
+                document.write('<p>Напистаь простейшую программу шифрования. Программа каждую букву заменяет на следующую за ней в алфавите ("я" переходит в "а").</p>');
+                document.write(`<p>Исходная строка:<br>${str}</p>`);
+                let str_1 = '';
+                for (let char of str) {
+                    if (/[A-Za-zА-Яа-я]/.test(char) == true) {
+                        if (char == 'Z' || char == 'z') {
+                            str_1 += String.fromCodePoint(char.codePointAt(0) - 25);
+                        }
+                        else if (char == 'Я'|| char == 'я') {
+                            str_1 += String.fromCodePoint(char.codePointAt(0) - 31);
+                        } else {
+                            str_1 += String.fromCodePoint(char.codePointAt(0) + 1);
+                        }
+                    } else {
+                        str_1 += char;
+                    }
+                }
+                document.write(`<p>Зашифрованная строка:<br>${str_1}</p>`);
+            </script>
+        </div>
+    </body>
+</html>
