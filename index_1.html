@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 1</title>
+    </head>
+    <body>
+        <div id="main_1">
+            <script>
+                "use strict";
+                let str = prompt('Введите строку', 'qw!12qq!');
+                document.write("<p>После каждого символа '!' вставить символ 'I' и подсчитать общее количество цифр в строке.</p>");
+                document.write(`<p>Исходная строка:<br>${str}</p>`);
+                let char = '!';
+                let pos = -1;
+                let str_1 = '';
+                let pos_1 = -1;
+                while ((pos = str.indexOf(char, pos + 1)) != -1) {
+                    str_1 += str.slice(pos_1 + 1, pos + 1) + 'I';
+                    pos_1 = pos;
+                }
+                str_1 += str.slice(pos_1 + 1, str.length);
+                document.write(`<p>Измененная строка:<br>${str_1}</p>`);
+                let n = (str_1.match(/\d/g) || []).length;
+                document.write(`<p>Количество цифр в строке: ${n}</p>`);
+            </script>
+        </div>
+    </body>
+</html>
