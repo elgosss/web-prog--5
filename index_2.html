@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 2</title>
+    </head>
+    <body>
+        <div id="main_2">
+            <script>
+                "use strict";
+                let str = prompt('Введите строку (более одного слова)', 'Иванов Иван Иванович');
+                document.write('<p>Для первого слова указать, сколько букв "и" в нем содержится. Переставить первое слово в конец строки.</p>');
+                document.write(`<p>Исходная строка:<br>${str}</p>`);
+                let pos = str.indexOf(' ');
+                if (pos == -1) {
+                    alert('Введите более одного слова!');
+                } else {
+                    let first_word = str.slice(0, pos);
+                    let n = 0;
+                    for (let char of first_word) {
+                        if ((char == 'и') || (char == 'И')) n++;
+                    }
+                    document.write(`<p> Количество букв "и" в первом слове: ${n}</p>`);
+                    let str_1 = str.slice(pos + 1) + ' ' + first_word;
+                    document.write(`<p>Первое слово в конец строки:<br>${str_1}</p>`);
+                }
+            </script>
+        </div>
+    </body>
+</html>
