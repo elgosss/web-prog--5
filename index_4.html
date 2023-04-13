@@ -11,25 +11,26 @@
                 let str = prompt('Введите строку', 'Поставьте балл');
                 document.write('<p>Написать программу, которая в каждом слове перемешивает буквы местами за исключением первой и последней буквы слова.</p>');
                 document.write(`<p>Исходная строка:<br>${str}</p>`);
-                let pos = -1;
-                let pos_1 = -1;
+                str = str.split(' ');
+                let n = str.length;
                 let word = '';
-                let str_1 = '';
-                let n = 0;
-                while ((pos = str.indexOf(' ', pos + 1)) != -1) {
-                    word = str.slice(pos_1 + 1, pos);
-                    pos_1 = pos;
-                    n = word.length;
-                    for (let i = 0; i < n; i++) {
-                        let j = Math.floor(Math.random() * (i + 1));
-                        let tmp = word[i];
-                        word[i] = word[j];
-                        word[j] = tmp;
+                document.write('<p>Измененная строка:<br>');
+                for (let i = 0; i < n; i++) {
+                    word = str[i];
+                    word = word.split('');
+                    let k = word.length;
+                    for (let i1 = k - 2; i1 > 0; i1--) {
+                        let j = Math.floor(Math.random() * i1);
+                        if (j != 0) {
+                            let tmp = word[i1];
+                            word[i1] = word[j];
+                            word[j] = tmp;
+                        }
                     }
-                    str_1 += word;
+                    str[i] = word;
+                    document.write(str[i].join('') + ' ');
                 }
-                str_1 += str.slice(pos_1 + 1);
-                document.write(`<p>Измененная строка:<br>${str_1}</p>`);
+                document.write('</p>');
             </script>
         </div>
     </body>
