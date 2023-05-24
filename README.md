@@ -1,2 +1,1 @@
-# web-prog-5
-Работа со строками в JavaScript
+# Работа со строками в JavaScript
